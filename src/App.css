@@ -1,38 +1,365 @@
-.App {
+header {
+  padding: 40px 0 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: var(--primery);
+  border-bottom: 1px solid #007ced;
+}
+
+.logo {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 10px;
+  margin-right: 5px;
+  cursor: pointer;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo  .logo-text {
+  font-size: 44px;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--title);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+nav .togglebtn {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  display: none;
+}
+
+nav .togglebtn span {
+  display: block;
+  background-color: #007ced;
+  margin: 5px 0;
+  width: 100%;
+  height: 3px;
+  transition: 0.3s;
+}
+
+nav .navlinks {
+  list-style-type: none;
+}
+
+nav .navlinks li {
+  display: inline-block;
+}
+
+nav .navlinks li a {
+  color: var(--title);
+  margin-right: 1.5rem;
+  text-decoration: none;
+  font-size: 25px;
+  transition: 0.5s;
+}
+nav .navlinks li a:hover {
+  transform: scale(1.2);
+  font-size: 30px;
+  color: #007ced;
+}
+.navlinks.open {
+  right: 0;
+}
+
+/* Адаптация */
+@media (max-width: 930px) {
+  nav .togglebtn {
+    display: block;
+  }
+  header {
+    padding: 40px 0 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: var(--primery);
+    border-bottom: 1px solid #007ced;
+  }
+  .click span:first-child {
+    transform: rotate(-40deg);
+  }
+
+  .click span:nth-child(2) {
+    opacity: 0;
+    margin: 0;
+  }
+
+  .click span:last-child {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  .logo .logo-text {
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--title);
+  }
+  
+  nav .navlinks {
+    position: fixed;
+    top: 100px;
+    right: -100%;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color);
+    z-index: 3;
+    box-shadow: 5px 13px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  nav .navlinks li {
+    display: block;
+  }
+
+  nav .navlinks li a {
+    display: block;
+    margin-bottom: 15px;
+    text-align: center;
   }
 }
+.language-selector {
+  position: relative;
+ 
+}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.language-selector button {
+  background: none;
+  border: none;
+  margin: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: inherit;
+}
+
+.language-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.language-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.language-menu li:hover {
+  font-size: 20px;
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--primery);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+  position: absolute;
+  top: 0;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  order: 2;
+  top: -8px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* footer */
+
+.footer-conteiner {
+  width: 100%;
+  height: auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
+  gap: 1%;
+  background-color: var(--primery);
+  border-top: 1px solid #007ced;
+}
+.footer-conteiner .logo-footer {
+  font-size: 40px;
+  color: #0184ff;
+}
+.footer-conteiner div a {
+  font-size: 30px;
+  text-decoration: none;
+  color: var(--title);
+  transition: 0.5s;
+}
+.footer-conteiner a:hover {
+  transform: scale(1.2);
+  font-size: 35px;
+  color: #007ced;
 }
 
-.App-link {
-  color: #61dafb;
+.sameId {
+  height: 60px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.sameId  img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.sameId a {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.sameId div {
+  font-size: 20px;
+  color: var(--title);
+}
+@media (max-width: 1370px) {
+  .footer-conteiner {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 1%;
+    background-color: var(--primery);
+    border-top: 1px solid #007ced;
   }
 }
